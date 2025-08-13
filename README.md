@@ -12,10 +12,10 @@ Tag used for control:
 Scheduler-Stop-Start=YES
 
 ## Architecture
-<img width="856" height="230" alt="image" src="https://github.com/user-attachments/assets/9a335f6a-9600-42be-82ff-f34c0b1f658e" />
+<img width="656" height="130" alt="image" src="https://github.com/user-attachments/assets/9a335f6a-9600-42be-82ff-f34c0b1f658e" />
 
 ## Schedule  (Monday to Friday)
-<img width="1081" height="387" alt="image" src="https://github.com/user-attachments/assets/ee3ea938-1918-4762-9c80-968907545f88" />
+<img width="881" height="187" alt="image" src="https://github.com/user-attachments/assets/ee3ea938-1918-4762-9c80-968907545f88" />
 Cron schedules are defined in EventBridge rules. 
 Each Lambda function is triggered at the specified times.
 Resources are selected based on the tag: Scheduler-Stop-Start=YES.
