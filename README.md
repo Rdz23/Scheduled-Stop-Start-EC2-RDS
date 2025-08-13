@@ -27,10 +27,58 @@ Permissions to create Lambda, EventBridge rules, SNS topics, and IAM roles.
 S3 bucket for Lambda deployment packages.
 
 2. Setup Steps
-Clone Repository
+   A. Clone Repository
 
-git clone https://github.com/<your-org>/<your-repo>.git
-cd <your-repo>
+      git clone https://github.com/<your-org>/<your-repo>.git
+      cd <your-repo>
 
+   B. Create IAM Role and Policy
+      Attach the customer-managed policy with EC2, RDS, and SNS permissions.
+      Trust relationship: lambda.amazonaws.com.
+
+   C. Deploy Lambda Functions
+      zip -r scheduler-start.zip start_lambda/
+      aws lambda create-function --function-name scheduler-start-tagged-ec2-rds \
+    --zip-file fileb://scheduler-start.zip \
+    --handler lambda_function.lambda_handler \
+    --runtime python3.13 \
+    --role arn:aws:iam::<account-id>:role/<lambda-role>
+
+     Repeat for:
+       pre-scheduler-stop-tagged-ec2-rds
+       scheduler-stop-tagged-ec2-rds
+
+   D. Configure EventBridge Rules
+       aws events put-rule \
+       --name scheduler-stop-tagged-event-rule \
+       --description "Stop tagged EC2/RDS - Mon-Fri at 7PM GMT+8" \
+       --schedule-expression "cron(0 11 ? * MON-FRI *)"
+
+   E. Subscribe SNS Recipients
+      aws sns subscribe \
+      --topic-arn arn:aws:sns:ap-southeast-1:<account-id>:scheduler-stop-tagged-ec2-rds \
+      --protocol email \
+      --notification-endpoint you@example.com
+
+ 4. IAM Policy Example
+
+   
+ 5. Testing
+    Dry-run: Modify Lambda to log resource IDs instead of stopping them.
+    Tag test resources and trigger EventBridge manually.
+    Verify SNS notification email delivery.
+
+  6. Back-out Plan
+       Disable all EventBridge rules:
+       aws events disable-rule --name scheduler-stop-tagged-event-rule
+       aws events disable-rule --name scheduler-start-tagged-event-rule
+       aws events disable-rule --name pre-scheduler-stop-tagged-event-rule
+
+  7. Notifications
+      SNS subject lines:
+     Scheduled Stop Alerts - DEV EC2 & RDS (pre-stop)
+     Scheduled Stop Report - DEV EC2 & RDS (post-stop)
+
+    
 
 
