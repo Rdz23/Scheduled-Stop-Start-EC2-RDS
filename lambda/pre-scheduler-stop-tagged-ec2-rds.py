@@ -2,7 +2,7 @@ import boto3
 import os
 
 AWS_REGION = "ap-southeast-1"
-SNS_TOPIC_ARN = "arn:aws:sns:ap-southeast-1:665634427675:scheduler-stop-tagged-ec2-rds"
+SNS_TOPIC_ARN = "arn:aws:sns:ap-southeast-1:<ACCOUNT#>:scheduler-stop-tagged-ec2-rds"
 
 ec2 = boto3.client('ec2', region_name=AWS_REGION)
 rds = boto3.client('rds', region_name=AWS_REGION)
