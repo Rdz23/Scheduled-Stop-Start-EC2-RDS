@@ -1,7 +1,7 @@
 import boto3
 
 REGION = "ap-southeast-1"
-SNS_ARN = "arn:aws:sns:ap-southeast-1:665634427675:scheduler-start-tagged-ec2-rds"
+SNS_ARN = "arn:aws:sns:ap-southeast-1:<ACCOUNT#>:scheduler-start-tagged-ec2-rds"
 
 ec2 = boto3.client('ec2', region_name=REGION)
 rds = boto3.client('rds', region_name=REGION)
@@ -55,5 +55,6 @@ def lambda_handler(event, context):
         Subject="Scheduled Start Report - DEV EC2 & RDS",
         Message=message
     )
+
 
     return {"statusCode": 200, "body": message}
