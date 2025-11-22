@@ -13,6 +13,7 @@ Tag used for control:
 ## Architecture
 <img width="656" height="130" alt="image" src="https://github.com/user-attachments/assets/9a335f6a-9600-42be-82ff-f34c0b1f658e" />
 
+
 ## Schedule  (Monday to Friday)
 
 | Schedule Type | Description                               | Trigger Time (SGT) | Mechanism            |
@@ -21,11 +22,10 @@ Tag used for control:
 | Pre-Stop      | Sends SNS reminder 1 hour before stopping | 6:00 PM            | Lambda + EventBridge |
 | Stop          | Stops tagged EC2 & RDS instances          | 7:00 PM            | Lambda + EventBridge |
 
-
-<img width="881" height="187" alt="image" src="https://github.com/user-attachments/assets/ee3ea938-1918-4762-9c80-968907545f88" />  \
-Cron schedules are defined in EventBridge rules. 
-Each Lambda function is triggered at the specified times.
-Resources are selected based on the tag: Scheduler-Stop-Start=YES.
+Notes:
+   - Cron schedules are defined in EventBridge rules.
+   - Each Lambda function is triggered at its corresponding time.
+   - Resources are selected based on the tag: *Scheduler-Stop-Start=YES*
 
 ## Manual Procedure – Stop Non-Prod EC2 & RDS  
     **EC2 Stop Procedure**
