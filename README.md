@@ -105,10 +105,10 @@ S3 bucket for Lambda deployment packages.
 
 ## Permissions & Guardrails
    Ensure all Production servers are configured with appropriate protections.
-   API Protection Settings:
-
+   
+    **API Protection Settings: **
    --no-disable-api-stop       (Enable API Stop protection)
    --enable-api-termination    (Enable Termination protection)
 
 A dedicated IAM policy/group will be used to control non-prod access, e.g.:
-   NON-PROD_EC2-RDS-START-STOP
+    **NON-PROD_EC2-RDS-START-STOP**
