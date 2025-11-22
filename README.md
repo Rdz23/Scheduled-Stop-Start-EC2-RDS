@@ -9,7 +9,7 @@ Helps reduce costs by turning off non-critical workloads after business hours.
 Tag-driven logic ensures flexibility and control per resource.
 Tag used for control:
 **Scheduler-Stop-Start=YES**
-<img width="918" height="359" alt="image" src="https://github.com/user-attachments/assets/e78d9f1c-d29d-4b14-8769-afeb82a0296e" />
+<img width="718" height="159" alt="image" src="https://github.com/user-attachments/assets/e78d9f1c-d29d-4b14-8769-afeb82a0296e" />
 
 ## Architecture
 <img width="656" height="130" alt="image" src="https://github.com/user-attachments/assets/9a335f6a-9600-42be-82ff-f34c0b1f658e" />
