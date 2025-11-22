@@ -59,25 +59,56 @@ S3 bucket for Lambda deployment packages.
       --protocol email \
       --notification-endpoint you@example.com
 
- 4. IAM Policy Example
+ 3. IAM Policy Example
 
    
- 5. Testing
+ 4. Testing
     Dry-run: Modify Lambda to log resource IDs instead of stopping them.
     Tag test resources and trigger EventBridge manually.
     Verify SNS notification email delivery.
 
-  6. Back-out Plan
+ 5. Back-out Plan
        Disable all EventBridge rules:
        aws events disable-rule --name scheduler-stop-tagged-event-rule
        aws events disable-rule --name scheduler-start-tagged-event-rule
        aws events disable-rule --name pre-scheduler-stop-tagged-event-rule
 
-  7. Notifications
+ 6. Notifications
       SNS subject lines:
      Scheduled Stop Alerts - DEV EC2 & RDS (pre-stop)
      Scheduled Stop Report - DEV EC2 & RDS (post-stop)
 
-    
+ ## Manual Procedure – Stop Non-Prod EC2 & RDS  
+    **EC2 Stop Procedure**
+      1. Log in to the AWS console using your IAM account
+      2. Navigate using the search bar, or directly via:
+      3. EC2 Instances → EC2 | Instances | ap-southeast-1
+      4. Search for the non-prod instance name (e.g., tEST-Instance).
+      5. Select the instance by ticking the checkbox.
+      6. Open the Instance State dropdown → Stop Instance.
+      7. Click Stop.
 
+    **RDS Stop Procedure**
+       1. Navigate to  Databases → Aurora and RDS | ap-southeast-1
+       2. Select the target RDS instance.
+       3. Open Actions → Stop temporarily
 
+ ## Manual Procedure – Start Non-Prod EC2 & RDS  
+     **EC2 Start Procedure**
+       1. Log in to AWS console using your IAM account.
+       2. Navigate to:
+           EC2 Instances → EC2 | Instances | ap-southeast-1
+       3. Search for the non-prod instance (e.g., TEST-Instance)
+       4. Tick the checkbox to select the instance.
+       5. Open the Instance State dropdown → Start Instance
+       6. Click "Start"
+
+## Permissions & Guardrails
+   Ensure all Production servers are configured with appropriate protections.
+   API Protection Settings:
+
+   --no-disable-api-stop       (Enable API Stop protection)
+   --enable-api-termination    (Enable Termination protection)
+
+A dedicated IAM policy/group will be used to control non-prod access, e.g.:
+   NON-PROD_EC2-RDS-START-STOP
