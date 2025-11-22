@@ -4,7 +4,7 @@
 This project automates **scheduled start/stop of tagged EC2 and RDS instances** in AWS **DEV** and **QA** environments to reduce costs during non-working hours. It uses **AWS Lambda**, **Amazon EventBridge**, and **Amazon SNS** for notifications.
 
 ## Features
-The Scheduler Stop/Start mechanism automates EC2 and RDS instance lifecycle management for DEV and QA environments based on tag-based filtering.
+The Scheduler Stop/Start mechanism automates EC2 and RDS instance lifecycle management for DEV and QA environments on tag-based filtering.
 Helps reduce costs by turning off non-critical workloads after business hours.
 Tag-driven logic ensures flexibility and control per resource.
 Tag used for control:
