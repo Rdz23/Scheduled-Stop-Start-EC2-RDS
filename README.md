@@ -1,7 +1,7 @@
 # AWS Stop/Start Scheduler – Non Prod EC2 & RDS
 
 ## Overview
-This project automates **scheduled start/stop of tagged EC2 and RDS instances** in AWS **DEV** and **QA** environments to reduce costs during non-working hours. It uses **AWS Lambda**, **Amazon EventBridge**, and **Amazon SNS** for orchestration, notifications, and execution.
+This project automates **scheduled start/stop of tagged EC2 and RDS instances** in AWS **DEV** and **QA** environments to reduce costs during non-working hours. It uses **AWS Lambda**, **Amazon EventBridge**, and **Amazon SNS** for notifications.
 
 ## Features
 The Scheduler Stop/Start mechanism automates EC2 and RDS instance lifecycle management for DEV and QA environments based on tag-based filtering.
