@@ -8,7 +8,7 @@ The Scheduler Stop/Start mechanism automates EC2 and RDS instance lifecycle mana
 Helps reduce costs by turning off non-critical workloads after business hours.
 Tag-driven logic ensures flexibility and control per resource.
 Tag used for control:
-Scheduler-Stop-Start=YES
+**Scheduler-Stop-Start=YES**
 
 ## Architecture
 <img width="656" height="130" alt="image" src="https://github.com/user-attachments/assets/9a335f6a-9600-42be-82ff-f34c0b1f658e" />
