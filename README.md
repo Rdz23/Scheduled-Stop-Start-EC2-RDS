@@ -29,7 +29,7 @@ Notes:
 
 ## Manual Procedure – Stop Non-Prod EC2 & RDS  
     **EC2 Stop Procedure**
-      1. Log in to the AWS console using your IAM account
+      1. Log in to the AWS console using your IAM or AD Account
       2. Navigate using the search bar, or directly via:
       3. EC2 Instances → EC2 | Instances | ap-southeast-1
       4. Search for the non-prod instance name (e.g., tEST-Instance).
@@ -44,7 +44,7 @@ Notes:
 
 ## Manual Procedure – Start Non-Prod EC2 & RDS  
      **EC2 Start Procedure**
-       1. Log in to AWS console using your IAM account.
+       1. Log in to AWS console using your IAM or AD Account.
        2. Navigate to:
            EC2 Instances → EC2 | Instances | ap-southeast-1
        3. Search for the non-prod instance (e.g., TEST-Instance)
