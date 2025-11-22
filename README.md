@@ -17,11 +17,11 @@ Tag used for control:
 
 ## Schedule  (Monday to Friday)
 
-| Schedule Type | Description                               | Trigger Time (SGT) | Mechanism            |
-| ------------- | ----------------------------------------- | ------------------ | -------------------- |
-| Start         | Starts tagged EC2 & RDS instances         | 5:00 AM            | Lambda + EventBridge |
-| Pre-Stop      | Sends SNS reminder 1 hour before stopping | 6:00 PM            | Lambda + EventBridge |
-| Stop          | Stops tagged EC2 & RDS instances          | 7:00 PM            | Lambda + EventBridge |
+| Schedule Type | Description                               | Trigger Time (SGT) | Mechanism                  |
+| ------------- | ----------------------------------------- | ------------------ | -------------------------- |
+| Start         | Starts tagged EC2 & RDS instances         | 5:00 AM            | EventBridge + Lambda + SNS |
+| Pre-Stop      | Sends SNS reminder 1 hour before stopping | 6:00 PM            | EventBridge + Lambda + SNS |
+| Stop          | Stops tagged EC2 & RDS instances          | 7:00 PM            | EventBridge + Lambda + SNS |
 
 Notes:
    - Cron schedules are defined in EventBridge rules.
