@@ -19,7 +19,7 @@ Tag used for control:
 
 ## Schedule  (Monday to Friday)
 
-| Schedule Type | Description                               | Trigger Time (SGT) | Mechanism                  |
+| Schedule Type | Lambda and Description                    | Trigger Time (SGT) | Mechanism                  |
 | ------------- | ----------------------------------------- | ------------------ | -------------------------- |
 | Start         | Starts tagged EC2 & RDS instances         | 5:00 AM            | EventBridge + Lambda + SNS |
 | Pre-Stop      | Sends SNS reminder 1 hour before stopping | 6:00 PM            | EventBridge + Lambda + SNS |
