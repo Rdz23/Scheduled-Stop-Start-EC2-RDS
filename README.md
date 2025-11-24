@@ -30,6 +30,16 @@ Notes:
    - Each Lambda function is triggered at its corresponding time.
    - Resources are selected based on the tag: *Scheduler-Stop-Start=YES*
 
+## Permissions & Guardrails
+   Ensure all Production servers are configured with appropriate protections.
+   
+    **API Protection Settings: **
+      --no-disable-api-stop       (Enable API Stop protection)
+      --enable-api-termination    (Enable Termination protection)
+
+A dedicated IAM policy/group will be used to control non-prod access, e.g.:
+    **NON-PROD_EC2-RDS-START-STOP**
+
 ## Manual Procedure – Stop Non-Prod EC2 & RDS  
     **EC2 Stop Procedure**
       1. Log in to the AWS console using your IAM or AD Account
@@ -54,16 +64,6 @@ Notes:
        4. Tick the checkbox to select the instance.
        5. Open the Instance State dropdown → Start Instance
        6. Click "Start"
-
-## Permissions & Guardrails
-   Ensure all Production servers are configured with appropriate protections.
-   
-    **API Protection Settings: **
-      --no-disable-api-stop       (Enable API Stop protection)
-      --enable-api-termination    (Enable Termination protection)
-
-A dedicated IAM policy/group will be used to control non-prod access, e.g.:
-    **NON-PROD_EC2-RDS-START-STOP**
 
 ## Deployment
 1. Prerequisites
